@@ -44,7 +44,7 @@ const HomePage = () => {
     >
       <button onClick={() => handleArrowClick('prev')}>Previous</button>
       <button onClick={() => handleArrowClick('next')}>Next</button>
-      {/* Your content goes here */}
+   
     </div>
       
       </div>

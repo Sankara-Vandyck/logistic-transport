@@ -4,7 +4,7 @@ const PriceCalculator = () => {
     const [distance, setDistance] = useState(0);
     const [weight, setWeight] = useState(0);
     const [price, setPrice] = useState(0);
-    const [clicked, setClicked] = useState(false); // State to track if the button is clicked
+    const [clicked, setClicked] = useState(false); 
 
     const calculatePrice = () => {
         // Example calculation: $10 per km for distance and $2 per kg for weight
@@ -14,32 +14,35 @@ const PriceCalculator = () => {
     };
 
     const handleClick = () => {
-        calculatePrice(); // Calculate price when button is clicked
-        setClicked(true); // Update state to indicate button is clicked
+        calculatePrice(); 
+        setClicked(true); 
     };
 
     return (
         <div className='block'>
-            <div>
-                Distance (km):
-                <input
-                    type="number"
-                    value={distance}
-                    onChange={(e) => setDistance(e.target.value)}
-                />
-            </div>
-            <div>
-                Weight (kg):
-                <input
-                    type="number"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                />
-            </div>
-            {/* Use click event instead of hover */}
-            <button onClick={handleClick}>Calculate Price</button>
-            {/* Display price only when button is clicked */}
-            {clicked && <p>Total Price: ${price.toFixed(2)}</p>}
+            <button onClick={() => setClicked(!clicked)}>Price Calculator</button>
+            {clicked && (
+                <div>
+                    <div>
+                        Distance (km):
+                        <input
+                            type="number"
+                            value={distance}
+                            onChange={(e) => setDistance(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        Weight (kg):
+                        <input
+                            type="number"
+                            value={weight}
+                            onChange={(e) => setWeight(e.target.value)}
+                        />
+                    </div>
+                    <button onClick={handleClick}>Calculate Price</button>
+                    {clicked && <p>Total Price: ${price.toFixed(2)}</p>}
+                </div>
+            )}
         </div>
     );
 };

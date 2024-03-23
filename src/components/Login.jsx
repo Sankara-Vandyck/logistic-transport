@@ -13,12 +13,12 @@ const Login = () => {
   const [error, setError] = useState('');
   const [showForm, setShowForm] = useState(false);
 
-   // Fetch countries data from the REST Countries API
+   
    useEffect(() => {
     fetch('https://restcountries.com/v2/all')
       .then(response => response.json())
       .then(data => {
-        // Extract required fields (name and code) from the response
+        
         const formattedData = data.map(country => ({
           name: country.name,
           code: country.alpha2Code,
@@ -32,13 +32,12 @@ const Login = () => {
     }
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validation logic here
-    // For simplicity, let's assume all fields are required
+   
     if (!firstName || !lastName || !email || !contact || !address || !residentialAddress || !country || !zipCode) {
       setError('All fields are required');
       return;
     }
-    // Your login/registration logic goes here
+   
     console.log('Registration successful');
     // Clear any previous error messages
     setError('');

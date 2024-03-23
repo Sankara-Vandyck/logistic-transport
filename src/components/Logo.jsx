@@ -1,5 +1,6 @@
 import React from 'react'
-import ParentComponent from './ParentComponent'
+
+import PriceCalculator from '../utils/PriceCalculator'
 
 
 const Logo = () => {
@@ -14,7 +15,7 @@ const Logo = () => {
         </div>
         </div>
         <div>
-           <ParentComponent />
+          <PriceCalculator />
             </div>
           </div>
   )
