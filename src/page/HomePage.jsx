@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
-import { RxDotFilled } from 'react-icons/rx';
+// import { RxDotFilled } from 'react-icons/rx';
 import Header from '../components/Header';
 
 const HomePage = () => {
@@ -70,7 +70,7 @@ const HomePage = () => {
               onClick={() => goToSlide(slideIndex)}
               className='text-2xl cursor-pointer'
             >
-              <RxDotFilled />
+              
             </div>
           ))}
         </div>
