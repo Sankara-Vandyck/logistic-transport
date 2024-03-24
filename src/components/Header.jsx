@@ -11,7 +11,7 @@ const Header = () => {
   const location = useLocation();
  
   return (
-    <div>
+    <div className="z-10">
        <Logo />
     <div className="flex justify-between items-left"> 
       <nav className = 'flex'>
