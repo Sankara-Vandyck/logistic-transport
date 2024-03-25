@@ -1,6 +1,14 @@
-.transition-slide-out {
-  animation: slide-out 2s forwards;
+@keyframes stretch-out {
+  from {
+     transform: scale(1);
+  }
+  to {
+     transform: scale(1.1);
+  }
  }
+ .animate-stretch-out {
+  animation: stretch-out 2s forwards;
+ } 
 
 @keyframes slide-in-left {
   from {

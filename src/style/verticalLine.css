@@ -1,4 +1,4 @@
 .vertical-line {
-    border-left: 1px solid black; /* Adjust the color and thickness as needed */
+    border-left: 2px solid black; /* Adjust the color and thickness as needed */
     height: 25px; /* Adjust the height of the vertical line */
   }
