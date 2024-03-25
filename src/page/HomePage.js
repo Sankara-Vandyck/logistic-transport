@@ -2,21 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import Header from '../components/Header'
 import '../style/slide.css';
+import image1 from'../assets/images/image-1.png';
+import image2 from'../assets/images/image-2.png';
+import image3 from'../assets/images/image-3.png';
 
 const HomePage = () => {
   const slides = [
     {
-      url: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80',
+      url: image1,
       header: 'Air Freigth That Saves Your Time!',
       text: 'Provide flexible, improved dervice levels, and accelerated delively. Reduced direct and indirect cost and much less complexity',
     },
     {
-      url: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
+      url:image2,
       header: 'Innovative sea transportation',
       text: 'Provide flexible, improved dervice levels, and accelerated delively. Reduced direct and indirect cost and much less complexity',
     },
     {
-      url: 'https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80',
+      url: image3,
       header: 'Direction, That Matters!',
       text: 'Provide flexible, improved dervice levels, and accelerated delively. Reduced direct and indirect cost and much less complexity',
     },
