@@ -3,21 +3,19 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from './page/HomePage'; 
 import './App.css'
 import './index.css'
-// import ImageSlide from './page/ImageSlide';
-
+import LoadingSpinner from './components/LoadingSpinner';
 
 
 function App() {
   return (
-    // <div>
-    //   <ImageSlide />
-    // </div>
-    
+      <>
+      <LoadingSpinner />
     <Routes>
       
       <Route path="/" element={<HomePage />} />
     
     </Routes>
+    </>
   );
 }
 

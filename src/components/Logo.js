@@ -1,7 +1,6 @@
 import React from 'react';
-
 import PriceCalculator from '../utils/PriceCalculator';
-
+import '../assets/images/image-4.png'
 
 const Logo = () => {
   return (
@@ -9,7 +8,7 @@ const Logo = () => {
       <div className='flex ml-4 space-x-5'>
         <div className='flex ml-4'>
           <div className="">
-            <img src='../assets/images/image-4.png' alt='logo' />
+          <img src="../assets/images/image-4.png" alt="Logo" className="w-8 h-6" />
           </div>
         </div>
         <div className='w-[145px]'>
