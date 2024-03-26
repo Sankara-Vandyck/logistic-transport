@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <div className="bg-transparent text-white">
       <Logo />
-      <div className="flex justify-between items-left mt-4 mr-7">
+      <div className="flex justify-between items-left mr-7">
         <nav className="flex justify-between w-full">
           <div className="flex-grow"></div>
           <ul className="flex space-x-5">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiX, FiEye, FiEyeOff } from 'react-icons/fi'; // Importing icons from React Icons
+import { FiX, FiEye, FiEyeOff } from 'react-icons/fi'; 
 
 const LoginPage = ({ showLogin, toggleLogin }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +30,7 @@ const LoginPage = ({ showLogin, toggleLogin }) => {
 
             {showLogin && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-10">
-                    <div className="bg-[#8ffff0cc] p-8 rounded shadow-lg w-96 relative">
+                    <div className="bg-[#8ffff0cc] p-8 rounded shadow-lg w-96 relative mt-16">
                         <button
                             className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700 focus:outline-none"
                             onClick={handleToggleLogin}
