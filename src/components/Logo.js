@@ -1,14 +1,14 @@
 import React from 'react';
 import PriceCalculator from '../utils/PriceCalculator';
-import '../assets/images/image-4.png'
+import image from'../assets/images/image-4.png'
 
 const Logo = () => {
   return (
     <div className='flex justify-between font-[white] mr-9 pt-5'>
       <div className='flex ml-4 space-x-5'>
         <div className='flex ml-4'>
-          <div className="w-6 h-8">
-          <img src="../assets/images/image-4.png" alt="Logo"/>
+          <div className="w-11 h-[35px]">
+          <img src={image} alt="Logo" className="w-10 h-25"/>
           </div>
         </div>
         <div className='w-[145px]'>
