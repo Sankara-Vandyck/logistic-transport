@@ -7,7 +7,7 @@ import '../style/slide.css';
 import image1 from '../assets/images/image-1.png';
 import image2 from '../assets/images/image-2.png';
 import image3 from '../assets/images/image-3.png';
-import  '../assets/videos/myVideo.mp4'
+
 
 const HomePage = () => {
   const slides = [
@@ -108,14 +108,14 @@ const HomePage = () => {
         <motion.div
           animate={controls}
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className="w-full h-full bg-cover duration-700"
+          className="w-full h-full bg-cover duration-500"
         >
           <Header headerText={slides[currentIndex].header} />
-          <div className='flex flex-col justify-center items-center top-[145px] relative text-white'>
+          <div className='flex flex-col justify-center items-center top-[250px] relative text-white'>
             <motion.h2
               animate={slideInLeftControls}
               initial={{ x: -100, opacity: 0 }}
-              className='text-3xl font-semibold bg-opacity-50 p-2 rounded-md text-center w-[735px]'
+              className='text-5xl font-semibold bg-opacity-50 p-2 rounded-md text-center w-[735px]'
             >
               {slides[currentIndex].header}
             </motion.h2>
@@ -128,6 +128,12 @@ const HomePage = () => {
             </motion.p>
           </div>
         </motion.div>
+
+        <motion.div
+        className="blinking-circle"
+        animate="animate"
+        transition={transition}
+      />
         
         <motion.div
           className="video-button"
@@ -142,7 +148,7 @@ const HomePage = () => {
         <div className="video-container">
            <BlinkingCircle />
           <iframe
-            src="myVideo.mp4"
+            src="../assets/videos/myVideo.mp4"
             title="Video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
