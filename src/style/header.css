@@ -1,8 +1,16 @@
+import bootstrap/dist/css/bootstrap.min.css
+
+
 header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     
+}
+
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
 }
 
 .nav-item:hover {

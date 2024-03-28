@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import Header from '../components/Header';
-import MyVideoComponent from '../components/MyVideoComponent';
 // import '../style/slide.css';
 import image1 from '../assets/images/image-1.png';
 import image2 from '../assets/images/image-2.png';
@@ -31,13 +30,11 @@ const HomePage = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const controls = useAnimation();
+  const slideInLeftControls = useAnimation();
+  const slideInRightControls = useAnimation();
 
- const controls = useAnimation();
- const slideInLeftControls = useAnimation();
- const slideInRightControls = useAnimation();
- const nextSlideControls = useAnimation(); // Define nextSlideControls here
-
- useEffect(() => {
+  useEffect(() => {
     const nextIndex = (currentIndex + 1) % slides.length;
 
     controls.start({
@@ -65,16 +62,10 @@ const HomePage = () => {
         opacity: 0,
         transition: { duration: 1 },
       });
-      nextSlideControls.start({ // Use nextSlideControls here
-        scale: 1,
-        opacity: 0,
-        transition: { duration: 0 },
-      });
     }, 7000);
 
     return () => clearInterval(interval);
- }, [currentIndex, slides.length, controls, slideInLeftControls, slideInRightControls, nextSlideControls]);
-
+  }, [currentIndex, slides.length, controls, slideInLeftControls, slideInRightControls]);
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
@@ -94,14 +85,14 @@ const HomePage = () => {
         <motion.div
           animate={controls}
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className="w-full h-full bg-cover duration-700"
+          className="w-full h-full bg-cover duration-500"
         >
           <Header headerText={slides[currentIndex].header} />
-          <div className='flex flex-col justify-center items-center top-[145px] relative text-white'>
+          <div className='flex flex-col justify-center items-center top-[250px] relative text-white'>
             <motion.h2
               animate={slideInLeftControls}
               initial={{ x: -100, opacity: 0 }}
-              className='text-3xl font-semibold bg-opacity-50 p-2 rounded-md text-center w-[735px]'
+              className='text-5xl font-semibold bg-opacity-50 p-2 rounded-md text-center w-[735px]'
             >
               {slides[currentIndex].header}
             </motion.h2>
@@ -114,8 +105,6 @@ const HomePage = () => {
             </motion.p>
           </div>
         </motion.div>
-        <MyVideoComponent />
-
         <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
           <BsChevronCompactLeft onClick={prevSlide} size={30} />
         </div>
@@ -123,12 +112,12 @@ const HomePage = () => {
         <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
-        <div className='flex justify-center mt-[-250px] text-white bg-black bg-opacity-50 ml-8 mr-8'>
+        <div className='flex justify-center mt-[-220px] text-white bg-black bg-opacity-50 ml-11 w-[1250px]'>
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className={`text-2xl cursor-pointer ${slideIndex === currentIndex ? 'bg-orange-600' : 'text-red'} p-2 rounded-sm`}
+              className={`text-2xl cursor-pointer ${slideIndex === currentIndex ? 'bg-orange-600' : ''} p-2 rounded-sm`}
             >
               <div className='w-[400px] h-[200px]'>
                 <p>{slide.text}</p>

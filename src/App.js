@@ -4,6 +4,8 @@ import HomePage from './page/HomePage';
 import './App.css'
 import './index.css'
 import LoadingSpinner from './components/LoadingSpinner';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {
