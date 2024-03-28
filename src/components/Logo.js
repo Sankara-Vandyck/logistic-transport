@@ -7,8 +7,8 @@ const Logo = () => {
     <div className='flex justify-between font-[white] mr-9 pt-5'>
       <div className='flex ml-4 space-x-5'>
         <div className='flex ml-4'>
-          <div className="w-11 h-[35px]">
-          <img src={image} alt="Logo" className="w-10 h-25"/>
+          <div className="w-[55px] h-[40px]">
+          <img src={image} alt="Logo" className="w-[50px] h-[60px]"/>
           </div>
         </div>
         <div className='w-[145px]'>
