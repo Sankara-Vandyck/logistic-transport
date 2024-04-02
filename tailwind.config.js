@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      variants: {
+        translate: ["responsive", "hover", "focus", "active", "checked", "peer"],
+      },
+    },
   },
   plugins: [],
 }
