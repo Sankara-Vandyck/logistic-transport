@@ -2,16 +2,19 @@ import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { Transition } from '@headlessui/react';
-import ReactPlayer from "react-player";
+
 import Header from "../components/Header";
+
 import "../style/slide.css";
 import "../style/VideoPlayer.css";
 // import "../style/mission.css"
 import image1 from "../assets/images/image-1.png";
 import image2 from "../assets/images/image-2.png";
 import image3 from "../assets/images/image-3.png";
-import image from "../assets/images/image-9.png"
-import videoPlay from "../assets/videos/myVideo.mp4";
+import imageSrc from "../assets/images/image-9.png"
+
+import VideoPlayerParent from "../components/VideoPlayerParent";
+import SecondVideoParent from "../components/SecondVideoParent";
 
 const HomePage = () => {
   const slides = [
@@ -38,20 +41,10 @@ const HomePage = () => {
     },
   ];
 
-  const video = () => [
-    {
-      url: videoPlay,
-    },
-  ];
-
-
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
   const slideInLeftControls = useAnimation();
   const slideInRightControls = useAnimation();
-  const [playing, setPlaying] = useState(false);
-
 
 
   useEffect(() => {
@@ -109,9 +102,7 @@ const HomePage = () => {
     setCurrentIndex(slideIndex);
   };
 
-  const handlePlayPause = () => {
-    setPlaying(!playing);
-  };
+
 
   const [selectedOption, setSelectedOption] = useState('mission');
 
@@ -119,8 +110,35 @@ const HomePage = () => {
     setSelectedOption(option);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
+    <button
+ className="fixed bottom-4 right-4 z-50 p-2 bg-gray-800 bg-opacity-50 text-white rounded-full focus:outline-none"
+ onClick={scrollToTop}
+>
+ <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+ >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M5 15l7-7 7 7"
+    />
+ </svg>
+</button>
+
       <div className="max-w-[1400px] h-[1080px] w-full m-auto relative group">
         <motion.div
           animate={controls}
@@ -152,25 +170,11 @@ const HomePage = () => {
         <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
           <BsChevronCompactRight onClick={nextSlide} size={30} />
         </div>
-
-        <div className="video-player">
-          {playing && (
-            <ReactPlayer
-              url={video.url}
-              playing={playing}
-              onPlay={handlePlayPause}
-              onPause={handlePlayPause}
-              width="100%"
-              height="100%"
-              controls={false}
-            />
-          )}
-          <button className="play-pause-button" onClick={handlePlayPause}>
-            <div className={`play-icon ${playing ? "pause" : ""}`} />
-          </button>
+        <div>
+          <VideoPlayerParent />
         </div>
 
-        <div className="flex justify-center mt-[-220px] text-white bg-black bg-opacity-50 ml-11 w-[1250px]">
+        <div className="flex justify-center relative top-[-265px] text-white bg-black bg-opacity-50 ml-11 w-[1250px]">
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
@@ -194,7 +198,7 @@ const HomePage = () => {
                 Saves Your Time!
               </h1>
             </div>
-            <div className="flex justify-between mt-[45px] w-[750px] space-x-20 border border-red-600">
+            <div className="flex justify-between mt-[45px] w-[750px] space-x-20 ">
               <div className="flex justify-center w-screen">
                 <div className="w-100 p-6 bg-gray-200 rounded-lg">
                   <div className="flex justify-between mb-4">
@@ -239,7 +243,7 @@ const HomePage = () => {
                   </Transition>
                 </div>
               </div>
-              <div className="space-y-10 border border-red-900">
+              <div className="space-y-10 ">
                 <div>
                   <h2>
                     Logisti Group is a representative logistics operator
@@ -263,13 +267,21 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="flex w-[850px] h-[500px]">
-            <ing src={image} alt="image" />
+          <div className="relative ">
+            <div className=" bg-gray-900 flex justify-center items-center">
+              <div className="relative">
+                <img src={imageSrc} alt="ImageSrc" className="w-full h-[400px]" />
+              </div>
+            </div>
           </div>
         </div>
       </>
       <>
         <div>
+          <div>
+            <SecondVideoParent />
+          </div>
+          
           {/* <h3>
             We pride ourselves on providing the best transport and shipping
             services available allover the world. Our skilled personnel,
